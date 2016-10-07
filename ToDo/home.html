@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   	<meta charset="utf-8">
+   	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/roboto.css">
+      <link rel="stylesheet" href="css/dhtmlxcalendar.css">
+    	<title>Welcome</title>
+      <script>
+    var myCalendar;
+    function doOnLoad() {
+      myCalendar = new dhtmlXCalendarObject({input: "date", button: "calendar_icon"});
+    }
+  </script>
+  </head>
+	<body onload="doOnLoad();">
+		<div class="form">
+ 			<ul class="tab-group">
+ 				<li class="tab active"><a href="#view">Today's Tasks</a></li>
+ 				<li class="tab "><a href="#viewall">All Tasks</a></li> 				
+        		<li class="tab "><a href="#createTask">Create New Task</a></li>
+      		</ul>
+      		<div class="tab-content">
+ 				<div id="view">
+ 					<h1>Todays Task</h1>
+ 				</div>
+ 				<div id="viewall">
+ 					<h1>All Tasks</h1>
+ 				</div>
+ 				<div id="createTask">   
+       		     	<h1>Create Task</h1>   
+              
+ 					<!-- <form action="http://happytodo.int2root.com/v1/todos" method="POST" id="CreateTODO" onsubmit="return submitform()"> -->
+          <form id="CreateTODO">
+        				<div class="field-wrap">
+			                <label>Description<span class="req">*</span></label>
+        					<input type="text" id="des" required name='desc' autocomplete="off"/>
+         				</div>
+           				<div class="field-wrap ">
+            				<label>State<span class="req">*</span></label>
+              				<input type="text"required name='state' autocomplete="off"/>
+             			</div>
+				      	<div class="field-wrap date">
+				           	<label>Due date<span class="req">*</span></label> 
+           					<input type="text"required id="date" name='date' autocomplete="off"/><img id="calendar_icon" src="/home/mangospring/Todo App/sign-up-login-form/calendar2.png" border="0">
+           					<input type="hidden"required name='time' onload="this.value = return getTime();" value="" />
+           				</div>
+           				<div class="field-wrap date">
+				           	 <label>From <span class="req">*</span></label> 
+           					<input type="text" placeholder="monday,tuesday" name='day0' autocomplete="off"/>
+           				</div>
+
+           				<div class="field-wrap date">
+				           	<label>To <span class="req">*</span></label>
+           					<input type="text" placeholder="monday,tuesday" name='day1' autocomplete="off"/>
+           				</div>	
+
+           				 <div class="field-wrap" >
+         					  <div class="dropdown">
+  								 <button class="dropbtn" >Repeat</button><label id="repeate"></label> 
+   								 <div class="dropdown-content">
+    							  <a onclick="getRepeat('Daily');" href="#">Daily</a>
+    							  <a onclick="getRepeat ('Weakly');" href="#">Weakly</a>
+ 	 								  <a onclick="getRepeat('Monthly');" href="#">Monthly</a>
+ 	 								  <a onclick="getRepeat('Yearly');" href="#">Yearly</a>
+  								 </div>
+  								   <input type="hidden" id="rule" name="rule" value="" />
+							     </div>
+	       				  </div>
+		         		<button type="submit" class="button button-block">Create</button>
+	   		</form>
+ 				</div>	
+ 			</div>
+ 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/dhtmlxcalendar.js"></script>
+	</body>
+</html>					

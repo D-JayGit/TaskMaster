@@ -1,0 +1,21 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+   <script>
+function addTask(){
+document.getElementById("taskpara").innerHTML+=document.getElementById("task").value+"\n";
+document.getElementById("task").value="";
+}
+  </script>
+  </head>
+  <body>
+  <div>
+<input type="text" id="task"><button onclick="addTask()"><b>Add<b></button>
+  </div>
+ <div>
+  <p id="taskpara"></p>
+</div>
+  </body>
+</html>
+
